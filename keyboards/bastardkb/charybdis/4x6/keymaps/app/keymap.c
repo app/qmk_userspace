@@ -45,7 +45,7 @@ enum charybdis_keymap_layers {
 #define LOWER MO(LAYER_LOWER)
 #define RAISE MO(LAYER_RAISE)
 #define PT_Z LT(LAYER_POINTER, KC_Z)
-#define DEL_RSFT LT(KC_RSFT, KC_DEL)
+#define DEL_RSFT MT(MOD_RSFT, KC_DEL)
 
 #ifndef POINTING_DEVICE_ENABLE
 #    define DRGSCRL KC_NO
