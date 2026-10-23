@@ -74,14 +74,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
        KC_TILD, KC_EXLM,   KC_AT, KC_PSLS, KC_PAST, KC_PMNS,    KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_UNDS,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       RM_NEXT, XXXXXXX,   KC_P7,   KC_P8,   KC_P9, KC_PPLS,    KC_LBRC,   KC_P7,   KC_P8,   KC_P9, KC_RBRC, KC_VOLU,
+        KC_TAB, XXXXXXX,   KC_P7,   KC_P8,   KC_P9, KC_PPLS,    KC_LBRC,   KC_P7,   KC_P8,   KC_P9, KC_RBRC, KC_VOLU,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       RM_TOGG,   KC_P0,   KC_P4,   KC_P5,   KC_P6,  KC_ENT,    KC_PPLS,   KC_P4,   KC_P5,   KC_P6, KC_PMNS, KC_MUTE,
+       KC_LCTL,   KC_P0,   KC_P4,   KC_P5,   KC_P6,  KC_ENT,    KC_PPLS,   KC_P4,   KC_P5,   KC_P6, KC_PMNS, KC_MUTE,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       RM_PREV, KC_HOME,   KC_P1,   KC_P2,   KC_P3,  KC_DOT,    KC_PAST,   KC_P1,   KC_P2,   KC_P3, KC_PSLS, KC_VOLD,
+       KC_LSFT, KC_HOME,   KC_P1,   KC_P2,   KC_P3,  KC_DOT,    KC_PAST,   KC_P1,   KC_P2,   KC_P3, KC_PSLS, KC_VOLD,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                                  XXXXXXX, XXXXXXX, _______,    XXXXXXX, _______,
-                                           XXXXXXX, XXXXXXX,      KC_P0
+                                  XXXXXXX, XXXXXXX, _______,    MS_BTN3, MS_BTN1,
+                                           XXXXXXX, XXXXXXX,    MS_BTN2,
   //                            ╰───────────────────────────╯ ╰──────────────────╯
   ),
 
@@ -89,11 +89,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
         KC_F12,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,      KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_MNXT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, KC_PGUP,  KC_UP, XXXXXXX, XXXXXXX, KC_VOLU,
+        KC_TAB, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    KC_LBRC, KC_PGUP,  KC_UP, XXXXXXX, KC_RBRC, KC_VOLU,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_MPLY, KC_LEFT,   KC_UP, KC_DOWN, KC_RGHT, XXXXXXX,    KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END, KC_MUTE,
+       KC_LCTL, KC_LEFT,   KC_UP, KC_DOWN, KC_RGHT, XXXXXXX,    KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END, KC_MUTE,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_MPRV, KC_HOME, KC_PGUP, KC_PGDN,  KC_END, XXXXXXX,    XXXXXXX, KC_PGDN, XXXXXXX, XXXXXXX, XXXXXXX, KC_VOLD,
+       KC_LSFT, KC_HOME, KC_PGUP, KC_PGDN,  KC_END, XXXXXXX,    XXXXXXX, KC_PGDN, XXXXXXX, XXXXXXX, KC_GRAVE, KC_VOLD,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
                                   _______, _______, XXXXXXX,    _______, XXXXXXX,
                                            _______, _______,    XXXXXXX
@@ -110,8 +110,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        XXXXXXX, _______, DRGSCRL, SNIPING, CURSOR,  PBRIGHT,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                                  MS_BTN2, MS_BTN1, MS_BTN3,    XXXXXXX, XXXXXXX,
-                                           XXXXXXX, MS_BTN2,    XXXXXXX
+                                  MS_BTN2, MS_BTN1, MS_BTN3,    MS_BTN3, MS_BTN1,
+                                           XXXXXXX, MS_BTN2,    MS_BTN2,
   //                            ╰───────────────────────────╯ ╰──────────────────╯
   ),
 };
