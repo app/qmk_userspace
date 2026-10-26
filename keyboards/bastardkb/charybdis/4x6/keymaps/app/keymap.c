@@ -74,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
        KC_TILD, KC_EXLM, KC_PSCR, KC_PSLS, KC_PAST, KC_PMNS,    KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_EQUAL,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-        KC_TAB, XXXXXXX,   KC_P7,   KC_P8,   KC_P9, KC_PPLS,    KC_LBRC,   KC_P7,   KC_P8,   KC_P9, KC_RBRC, KC_VOLU,
+        KC_TAB, KC_BSPC,   KC_P7,   KC_P8,   KC_P9, KC_PPLS,    KC_LBRC,   KC_P7,   KC_P8,   KC_P9, KC_RBRC, KC_VOLU,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        KC_LCTL,   KC_P0,   KC_P4,   KC_P5,   KC_P6,  KC_ENT,    KC_PPLS,   KC_P4,   KC_P5,   KC_P6, KC_PMNS, KC_MUTE,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
@@ -89,14 +89,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
         KC_F12,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,      KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-        KC_TAB, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    KC_LBRC, KC_PGUP,  KC_UP, XXXXXXX, KC_RBRC, KC_VOLU,
+        KC_TAB, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    KC_TILD, KC_PGUP,  KC_UP, KC_LBRC, KC_RBRC, KC_VOLU,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        KC_LCTL, KC_LEFT,   KC_UP, KC_DOWN, KC_RGHT, XXXXXXX,    KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END, KC_MUTE,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_LSFT, KC_HOME, KC_PGUP, KC_PGDN,  KC_END, XXXXXXX,    XXXXXXX, KC_PGDN, XXXXXXX, XXXXXXX, KC_GRAVE, KC_VOLD,
+       KC_LSFT, KC_HOME, KC_PGUP, KC_PGDN,  KC_END, XXXXXXX,     KC_ENT, KC_PGDN, KC_LCBR, KC_RCBR, KC_GRAVE, KC_VOLD,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                                  _______, _______, XXXXXXX,    _______, XXXXXXX,
-                                           _______, _______,    XXXXXXX
+                                  _______, KC_SPC,  KC_BSPC,    _______, XXXXXXX,
+                                           KC_LALT, KC_LGUI,    XXXXXXX
   //                            ╰───────────────────────────╯ ╰──────────────────╯
   ),
 
