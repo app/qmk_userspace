@@ -17,6 +17,9 @@
 #include QMK_KEYBOARD_H
 
 #define C_SPC_T LCTL_T(KC_NO)
+enum custom_keycodes {
+    ALT_TILD = SAFE_RANGE,
+};
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
@@ -26,8 +29,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 return false;
             }
             break;
+        case ALT_TILD:
+            if (record->event.pressed) {
+                register_code(KC_LALT);
+                tap_code(KC_GRAVE);
+            }
+            return false;
     }
     return true;
+}
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    if (!layer_state_cmp(state, LAYER_LOWER)) {
+        unregister_code(KC_LALT);
+    }
+    return state;
 }
 
 #ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
@@ -86,7 +102,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [LAYER_LOWER] = LAYOUT(
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
-       LALT(KC_GRAVE), KC_EXLM, KC_PSCR, KC_PSLS, KC_PAST, KC_PMNS,    KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_EQUAL,
+      ALT_TILD, KC_EXLM, KC_PSCR, KC_PSLS, KC_PAST, KC_PMNS,    KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_EQUAL,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
         KC_TAB, KC_BSPC,   KC_P7,   KC_P8,   KC_P9, KC_PPLS,    KC_LBRC,   KC_P7,   KC_P8,   KC_P9, KC_RBRC, KC_VOLU,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
