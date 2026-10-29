@@ -16,6 +16,30 @@
  */
 #include QMK_KEYBOARD_H
 
+// Определяем свой кейкод для нашей логики
+enum custom_keycodes {
+    CTL_SPC = SAFE_RANGE,
+};
+
+// Создаем Mod-Tap: при удержании это Left Control (LCTL),
+// а при таппе отправляет наш кастомный кейкод CTL_SPC
+#define C_SPC_T MT(MOD_LCTL, CTL_SPC)
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case CTL_SPC:
+            if (record->event.pressed) {
+                // Срабатывает при таппе (коротком нажатии)
+                // SEND_STRING(SS_DOWN(X_LCTL) SS_TAP(X_SPC) SS_UP(X_LCTL));
+                // Или более простым аналогом: tap_code16(LCTL(KC_SPC));
+                tap_code16(LCTL(KC_SPC));
+            }
+            return false; // Предотвращаем дальнейшую обработку этого кейкодов
+    }
+    return true;
+}
+
+
 #ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 #    include "timer.h"
 #endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
@@ -61,7 +85,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
         KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSLS,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_LCTL,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,       KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,
+       C_SPC_T,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,       KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        KC_LSFT,    PT_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RSFT,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
