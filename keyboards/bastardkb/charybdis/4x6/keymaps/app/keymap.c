@@ -39,13 +39,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 
-layer_state_t layer_state_set_user(layer_state_t state) {
-    if (!layer_state_cmp(state, LAYER_LOWER)) {
-        unregister_code(KC_LALT);
-    }
-    return state;
-}
-
 #ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 #    include "timer.h"
 #endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
@@ -56,6 +49,13 @@ enum charybdis_keymap_layers {
     LAYER_RAISE,
     LAYER_POINTER,
 };
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    if (!layer_state_cmp(state, LAYER_LOWER)) {
+        unregister_code(KC_LALT);
+    }
+    return state;
+}
 
 /** \brief Automatically enable sniping-mode on the pointer layer. */
 #define CHARYBDIS_AUTO_SNIPING_ON_LAYER LAYER_POINTER
