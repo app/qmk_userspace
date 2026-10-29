@@ -16,29 +16,19 @@
  */
 #include QMK_KEYBOARD_H
 
-// Определяем свой кейкод для нашей логики
-enum custom_keycodes {
-    CTL_SPC = SAFE_RANGE,
-};
-
-// Создаем Mod-Tap: при удержании это Left Control (LCTL),
-// а при таппе отправляет наш кастомный кейкод CTL_SPC
-#define C_SPC_T MT(MOD_LCTL, CTL_SPC)
+#define C_SPC_T LCTL_T(KC_NO)
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case CTL_SPC:
-            if (record->event.pressed) {
-                // Срабатывает при таппе (коротком нажатии)
-                // SEND_STRING(SS_DOWN(X_LCTL) SS_TAP(X_SPC) SS_UP(X_LCTL));
-                // Или более простым аналогом: tap_code16(LCTL(KC_SPC));
+        case LCTL_T(KC_NO):
+            if (record->tap.count && record->event.pressed) {
                 tap_code16(LCTL(KC_SPC));
+                return false;
             }
-            return false; // Предотвращаем дальнейшую обработку этого кейкодов
+            break;
     }
     return true;
 }
-
 
 #ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 #    include "timer.h"
@@ -96,7 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [LAYER_LOWER] = LAYOUT(
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
-       LALT(KC_TILD), KC_EXLM, KC_PSCR, KC_PSLS, KC_PAST, KC_PMNS,    KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_EQUAL,
+       KC_TILD, KC_EXLM, KC_PSCR, KC_PSLS, KC_PAST, KC_PMNS,    KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_EQUAL,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
         KC_TAB, KC_BSPC,   KC_P7,   KC_P8,   KC_P9, KC_PPLS,    KC_LBRC,   KC_P7,   KC_P8,   KC_P9, KC_RBRC, KC_VOLU,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
