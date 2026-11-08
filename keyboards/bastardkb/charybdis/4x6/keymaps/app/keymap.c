@@ -102,9 +102,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [LAYER_LOWER] = LAYOUT(
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
-      ALT_TILD, KC_EXLM, KC_PSCR, KC_PSLS, KC_PAST, KC_PMNS,    KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_EQUAL,
+       KC_TILD, KC_EXLM, KC_PSCR, KC_PSLS, KC_PAST, KC_PMNS,    KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_EQUAL,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-        KC_TAB, LALT(KC_BSPC), KC_P7, KC_P8, KC_P9, KC_PPLS,    KC_LBRC,   KC_P7,   KC_P8,   KC_P9, KC_RBRC, KC_VOLU,
+      ALT_TILD, LALT(KC_BSPC), KC_P7, KC_P8, KC_P9, KC_PPLS,    KC_LBRC,   KC_P7,   KC_P8,   KC_P9, KC_RBRC, KC_VOLU,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        KC_LCTL,   KC_P0,   KC_P4,   KC_P5,   KC_P6,  KC_ENT,    KC_PPLS,   KC_P4,   KC_P5,   KC_P6, KC_PMNS, KC_MUTE,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
